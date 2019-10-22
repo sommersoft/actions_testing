@@ -12,7 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: repository
-        run: echo ${{ github.repository }}
+        env:
+          OWNER_IS_ADAFRUIT: ${{ startswith(github.repository, 'adafruit') }}
+        run: |
+          echo "This workflow will only run if Adafruit is the repository owner."
+          echo "Repository owner is Adafruit: $OWNER_IS_ADAFRUIT"
   build:
     runs-on: ubuntu-latest
     if: startswith(github.repository, 'adafruit')
