@@ -2,8 +2,11 @@ name: Schedule testing
 
 on:
   push
+    branches:
+      - schedule
   schedule:
     - cron: 5 * * * *
+      if: github.repository == 'sommersoft/actions_testing'
 
 jobs:
   build:
