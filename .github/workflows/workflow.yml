@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ununtu-latest
+    runs-on: ubuntu-latest
     if: github.repository == 'sommersoft/actions_testing'
     steps:
       - name: Echo repo name
