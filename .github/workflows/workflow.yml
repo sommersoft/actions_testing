@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ensure not on a fork
-        if: github.repository == 'adafruit/*'
+        if: github.repository == 'adafruit/actions_testing'
       - name: Echo repo name
         if: success()
         run: echo ${{ github.repository }}
