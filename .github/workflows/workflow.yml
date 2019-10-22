@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Ensure not on a fork
         if: github.repository == 'adafruit/actions_testing'
-        echo: ${{ github.repository == 'adafruit/actions_testing' }}
+        run: echo ${{ github.repository == 'adafruit/actions_testing' }}
       - name: Echo repo name
         if: success()
         run: echo ${{ github.repository }}
