@@ -6,12 +6,11 @@ on:
       - schedule
   schedule:
     - cron: '*/15 * * * *'
-      if: github.repository == 'sommersoft/actions_testing'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.repository == 'sommersoft/actions_testing'
+    if: github.repository == 'adafruit/actions_testing'
     steps:
       - name: Echo repo name
         run: echo ${{ github.repository }}
