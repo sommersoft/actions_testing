@@ -5,7 +5,7 @@ on:
     branches:
       - schedule
   schedule:
-    - cron: 5 * * * *
+    - cron: '1 * * * *'
       if: github.repository == 'sommersoft/actions_testing'
 
 jobs:
@@ -14,4 +14,4 @@ jobs:
     if: github.repository == 'sommersoft/actions_testing'
     steps:
       - name: Echo repo name
-        run: echo {{ github.repository }}
+        run: echo ${{ github.repository }}
