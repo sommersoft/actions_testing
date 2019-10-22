@@ -6,7 +6,6 @@ on:
       - schedule
   schedule:
     - cron: '1 * * * *'
-      if: github.repository == 'sommersoft/actions_testing'
 
 jobs:
   build:
