@@ -5,7 +5,8 @@ on:
     branches:
       - schedule
   schedule:
-    - cron: '*/60 * * * *'
+    - cron: '*/15 * * * *'
+      if: github.repository == 'sommersoft/actions_testing'
 
 jobs:
   build:
