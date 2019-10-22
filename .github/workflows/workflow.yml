@@ -4,9 +4,11 @@ on:
   push
   schedule:
     - cron: 5 * * * *
-      if: github.repository == 'sommersoft/actions_testing'
 
 jobs:
-  steps:
-    - name: Echo repo name
-      run: echo {{ github.repository }}
+  build:
+    runs-on: ununtu-latest
+    if: github.repository == 'sommersoft/actions_testing'
+    steps:
+      - name: Echo repo name
+        run: echo {{ github.repository }}
