@@ -8,6 +8,11 @@ on:
     - cron: '*/15 * * * *'
 
 jobs:
+  check-org:
+    runs-on: ubuntu-latest
+    steps:
+      - name: repository
+        run: echo ${{ github.repository }}
   build:
     runs-on: ubuntu-latest
     if: startswith(github.repository, 'adafruit')
