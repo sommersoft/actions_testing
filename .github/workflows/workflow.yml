@@ -5,21 +5,12 @@ on:
     branches:
       - schedule
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/5 * * * *'
+      if: startswith(github.repository, 'adafruit')
 
 jobs:
-  check-org:
-    runs-on: ubuntu-latest
-    steps:
-      - name: repository
-        env:
-          OWNER_IS_ADAFRUIT: ${{ startswith(github.repository, 'adafruit') }}
-        run: |
-          echo "This workflow will only run if Adafruit is the repository owner."
-          echo "Repository owner is Adafruit: $OWNER_IS_ADAFRUIT"
   build:
     runs-on: ubuntu-latest
-    if: startswith(github.repository, 'adafruit')
     steps:
       - name: Echo repo name
         run: echo ${{ github.repository }}
