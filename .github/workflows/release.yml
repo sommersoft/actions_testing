@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Dump GitHub context
-      id: github_context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
@@ -23,6 +22,10 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: true
+    - name: output github.event info
+      env:
+        GH_EVENT: ${{ github.event.release.upload_url }}
+      run: echo "$GH_EVENT"
     - name: Upload Release Assets
       # the 'official' actions version does not yet support dynamically
       # supplying asset names to upload. @csexton's version chosen based on
@@ -34,4 +37,4 @@ jobs:
       with:
         pattern: "*"
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        release-url: ${{ steps.github_context.outputs.release.upload_url }}
+        release-url: ${{ github.event.release.upload_url }}
