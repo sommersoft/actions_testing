@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Dump GitHub context
+      id: github_context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
@@ -33,3 +34,4 @@ jobs:
       with:
         pattern: "*"
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        release-url: ${{ steps.github_context.outputs.release.upload_url }}
