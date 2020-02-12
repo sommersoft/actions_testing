@@ -1,8 +1,6 @@
-name: Release Actions
+name: Testing pick_a_pylint
 
-on:
-  release:
-    types: [published]
+on: [push]
 
 jobs:
   upload-release-assets:
@@ -22,18 +20,12 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: true
-    - name: output github.event info
-      env:
-        GH_EVENT: ${{ github.event.release.upload_url }}
-      run: echo "$GH_EVENT"
-    - name: Upload Release Assets
-      # the 'official' actions version does not yet support dynamically
-      # supplying asset names to upload. @csexton's version chosen based on
-      # discussion in the issue below, as its the simplest to implement and
-      # allows for selecting files with a pattern.
-      # https://github.com/actions/upload-release-asset/issues/4
-      #uses: actions/upload-release-asset@v1.0.1
-      uses: sommersoft/release-asset-action@test_log
+    - name: Checkout tools repo
+      uses: actions/checkout@v2
       with:
-        pattern: "*"
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        repository: sommersoft/actions-ci-circuitpython-libs
+        ref: pick_a_pylint
+        path: actions-ci
+    - name: Install deps
+      run: |
+        source actions-ci/install.sh
