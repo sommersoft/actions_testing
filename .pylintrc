@@ -1,0 +1,5 @@
+# pylint_version: 1.9.2
+
+# pylint stuff
+# goes here
+foo=bar
