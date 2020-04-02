@@ -19,6 +19,12 @@ jobs:
         python3 --version
     - name: ping the archive
       continue-on-error: true
-      run: ping -R -c 3 azure.archive.ubuntu.com
+      run: |
+        ping -R -c 3 azure.archive.ubuntu.com
+    - name: curl the archive
+      continue-on-error: true
+      run: |
+        'curl http://azure.archive.ubuntu.com/unbunt/ -w "status: %{http_code}\nnum_redirects: %{num_redirects}\ntime_connect: %{time_connect}\n"'
     - name: apt update
-      run: sudo apt-get update
+      run: |
+        sudo apt-get update
