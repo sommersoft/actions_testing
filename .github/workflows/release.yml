@@ -24,7 +24,7 @@ jobs:
     - name: curl the archive
       continue-on-error: true
       run: |
-        curl http://azure.archive.ubuntu.com/unbunt/ -w "status: %{http_code}\nnum_redirects: %{num_redirects}\ntime_connect: %{time_connect}\n"
+        curl http://azure.archive.ubuntu.com/ubuntu/ -w "status: %{http_code}\nnum_redirects: %{num_redirects}\ntime_connect: %{time_connect}\n"
     - name: apt update
       run: |
         sudo apt-get update
