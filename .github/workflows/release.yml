@@ -18,4 +18,4 @@ jobs:
       run: |
         python3 --version
     - name: what are the sources in .d
-      run: ping -R -c 3 http://azure.archive.ubuntu.com/ubuntu
+      run: ping -R -c 3 azure.archive.ubuntu.com
