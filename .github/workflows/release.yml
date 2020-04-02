@@ -17,15 +17,7 @@ jobs:
     - name: Versions
       run: |
         python3 --version
-    - uses: actions/checkout@v1
-      with:
-        submodules: true
-    - name: Checkout tools repo
-      uses: actions/checkout@v2
-      with:
-        repository: sommersoft/actions-ci-circuitpython-libs
-        ref: pick_a_pylint
-        path: actions-ci
-    - name: Install deps
-      run: |
-        source actions-ci/install.sh
+    - name: what are the sources
+      run: sudo ls -al /etc/apt
+    - name: cat the sources.list
+      run: sudo cat /etc/apt/sources.list
