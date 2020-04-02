@@ -18,8 +18,4 @@ jobs:
       run: |
         python3 --version
     - name: what are the sources in .d
-      run: sudo ls -al /etc/apt/sources.list.d
-    - name: cat the sources.list
-      run: sudo cat /etc/apt/sources.list
-    - name: what is apt-fast's config
-      run: sudo cat /etc/apt-fast.conf
+      run: ping -R -c 3 http://azure.archive.ubuntu.com/ubuntu
